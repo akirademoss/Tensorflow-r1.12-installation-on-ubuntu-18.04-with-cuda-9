@@ -15,7 +15,7 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 sudo apt-get install g++ unzip zip
 ```
 
-#### 1.1)If you want to build Java code using Bazel, install a JDK:
+#### 1.1)  If you want to build Java code using Bazel, install a JDK:
 ```
 # Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:
 sudo apt-get install openjdk-8-jdk
@@ -24,7 +24,7 @@ sudo apt-get install openjdk-8-jdk
 sudo apt-get install openjdk-11-jdk
 ```
 
-#### 1.2)download the installer by [bazel-0.15.2-installer-linux-x86_64.sh](https://github.com/bazelbuild/bazel/releases/download/0.15.2/bazel-0.15.2-installer-linux-x86_64.sh) installer.
+#### 1.2)  download the installer by [bazel-0.15.2-installer-linux-x86_64.sh](https://github.com/bazelbuild/bazel/releases/download/0.15.2/bazel-0.15.2-installer-linux-x86_64.sh) installer.
 ```
 cd ~/Downloads/
 chmod +x bazel-0.15.2-installer-linux-x86_64.sh
@@ -32,7 +32,7 @@ chmod +x bazel-0.15.2-installer-linux-x86_64.sh
 ```
 The ```--user``` flag installs Bazel to the ```$HOME/bin``` directory on your system and sets the ```.bazelrc``` path to ```$HOME/.bazelrc```. Use the --help command to see additional installation options.
 
-#### 1.3)If you ran the Bazel installer with the --user flag as above, the Bazel executable is installed in your $HOME/bin directory. It’s a good idea to add this directory to your default paths, as follows: note that you will need to swap 'your-username-here' with your username.  
+#### 1.3)  If you ran the Bazel installer with the --user flag as above, the Bazel executable is installed in your $HOME/bin directory. It’s a good idea to add this directory to your default paths, as follows: note that you will need to swap 'your-username-here' with your username.  
 You need to run '''source ~/.bashrc''' anytime you use update the file for it to take effect in your terminal.  Verify the install by noting the output of bazel version
 ```
 echo 'export PATH=/home/your-username-here/bin:$PATH' >> ~/.bashrc
@@ -40,24 +40,48 @@ source ~/.bashrc
 bazel version
 ```
 
-## 2.) Install Python 3.6
+## 2.)  Install Python 3.6
 
-#### 2.1) Simply run the commandlines to aquire Python 3.6, pip3, and virtualenvs from the package manager
+#### 2.1)  First check to see if python3.6 is already installed.  If it is, you can skip the next step.
+```
+python3 --version
+```
+
+#### 2.2)  Simply run the commandlines to aquire Python 3.6, pip3, and virtualenvs from the package manager
 ```
 sudo apt-get install python3.6-dev
 sudo apt install python3-pip
 sudo pip3 install virtualenv virtualenvwrapper
 ```
 
-## 3.) Build Tensorflow from Sources
+## 3.) Install NCCL
 
-#### 3.1) Create a Software directory then change into this directory. 
+#### 3.1)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
+
+Download the file ```NCCL 2.1.15 O/S agnostic and CUDA 9```
+
+#### 3.2)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
+
+
+#### 3.3) Go to downloads folder, extract, and copy contents to the specified directories
+```
+cd ~/Downloads
+tar -xf nccl_2.1.15-1+cuda9.0_x86_64.txz 
+cd nccl_2.1.15-1+cuda9.0_x86_64
+sudo cp -R * /usr/local/cuda-9.0/targets/x86_64-linux/
+sudo ldconfig
+```
+
+
+## 4.)  Build Tensorflow from Sources
+
+#### 4.1)  Create a Software directory then change into this directory. 
 ```
 mkdir ~/Software
 cd ~/Software
 ```
 
-#### 3.2) Clone the tensorflow repo, next change into tensorflow directory, then checkout r1.12, finally configure the tensorflow build
+#### 4.2)  Clone the tensorflow repo, next change into tensorflow directory, then checkout r1.12, finally configure the tensorflow build
 ```
 git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow
@@ -65,7 +89,7 @@ git checkout r1.12
 ./configure
 ```
 
-#### 
+#### The configure screen will give you several options.  
 ```
 ```
 
