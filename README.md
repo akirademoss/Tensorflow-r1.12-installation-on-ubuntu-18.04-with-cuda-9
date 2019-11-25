@@ -47,9 +47,11 @@ Download the file ```NCCL 2.1.15 O/S agnostic and CUDA 9```
 #### 2.2) Go to downloads folder, extract, and copy contents to the specified directories
 ```
 cd ~/Downloads
+mkdir nccl_2.1
 tar -xf nccl_2.1.15-1+cuda9.0_x86_64.txz 
 cd nccl_2.1.15-1+cuda9.0_x86_64
-sudo cp -R * /usr/local/cuda-9.0/targets/x86_64-linux/
+cp -R * ~/Downloads/nccl_2.1
+sudo mv ~/Downloads/nccl_2.1 /usr/local/
 sudo ldconfig
 ```
 
@@ -91,6 +93,7 @@ mkvirtualenv dl4cv
 workon dl4cv
 ```
 
+
 ## 4.)  Build Tensorflow from Sources
 
 #### 4.1)  Create a Software directory then change into this directory. 
@@ -109,9 +112,50 @@ git checkout r1.12
 
 #### The configure screen will give you several options.  
 ```
+Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
+
+Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: n
+
+Do you wish to build TensorFlow with XLA JIT support? [Y/n]: n
+
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 9.0
+
+Please specify the location where CUDA 10.0 toolkit is installed. Refer to Home for more details. [Default is /usr/local/cuda]: /usr/local/cuda-9.0
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]: 7
+
+Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /usr/local/cuda-9.0/
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: N
+
+Please specify the NCCL version you want to use. If NCCL 2.2 is not installed, then you can use version 1.3 that can be fetched automatically but it may have worse performance with multiple GPUs. [Default is 2.2]: 2.1
+
+Please specify the location where NCCL 2.3.5 is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /usr/local/cuda-9.0/targets/x86_64-linux/
+
+Now we need compute capability which we have noted at step 1 eg. 5.0
+
+Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 5.0] 5.0
+
+Do you want to use clang as CUDA compiler? [y/N]: N
+
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: /usr/bin/gcc
+
+Do you wish to build TensorFlow with MPI support? [y/N]: N
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: -march=native
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:N
+
+Configuration finished
 ```
 
-#### 
+#### The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
 ```
 
@@ -140,5 +184,3 @@ git checkout r1.12
 ```
 
 #### 
-![nvidia-smi](https://user-images.githubusercontent.com/8731829/50403622-ae5e0780-0765-11e9-96c3-cf649dbaeac3.png)
-
