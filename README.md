@@ -3,7 +3,8 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 
 ## Summary of Steps 
 ```
-1.) Install Bazel v0.15.2
+1.) Install Bazel 0.15.2
+2.) Instal NCCL 2.1.15
 2.) Install Python 3.6
 
 ```
@@ -40,30 +41,15 @@ source ~/.bashrc
 bazel version
 ```
 
-## 2.)  Install Python 3.6
+## 2.) Install NCCL
 
-#### 2.1)  First check to see if python3.6 is already installed.  If it is, you can skip the next step.
-```
-python3 --version
-```
-
-#### 2.2)  Simply run the commandlines to aquire Python 3.6, pip3, and virtualenvs from the package manager
-```
-sudo apt-get install python3.6-dev
-sudo apt install python3-pip
-sudo pip3 install virtualenv virtualenvwrapper
-```
-
-## 3.) Install NCCL
-
-#### 3.1)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
+#### 2.1)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
 
 Download the file ```NCCL 2.1.15 O/S agnostic and CUDA 9```
 
-#### 3.2)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
+#### 2.2)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
 
-
-#### 3.3) Go to downloads folder, extract, and copy contents to the specified directories
+#### 2.3) Go to downloads folder, extract, and copy contents to the specified directories
 ```
 cd ~/Downloads
 tar -xf nccl_2.1.15-1+cuda9.0_x86_64.txz 
@@ -72,6 +58,43 @@ sudo cp -R * /usr/local/cuda-9.0/targets/x86_64-linux/
 sudo ldconfig
 ```
 
+## 3.)  Install Python 3.6
+
+#### 3.1)  First check to see if python3.6 is already installed.  If it is, you can skip the next step.
+```
+python3 --version
+```
+
+#### 3.2)  Simply run the commandlines to aquire Python 3.6, pip3, and virtualenvs from the package manager
+```
+sudo apt-get install python3.6-dev
+sudo apt install python3-pip
+sudo pip3 install virtualenv virtualenvwrapper
+```
+
+#### 3.2)  Check to see if you have virtualenvwrapper setup
+If the output to this command is mkvirtualenv: command not found proceed to the next step.  Otherwise skip step 3.3.
+```
+mkvirtualenv dl4cv
+```
+
+#### 3.3)  Setup virtualenvwrapper. To read more about using virtualenvwrappers [check out this link](https://itnext.io/virtualenv-with-virtualenvwrapper-on-ubuntu-18-04-goran-aviani-d7b712d906d5)
+Also note that your-username-here must be replaced with your actual username.
+```
+mkdir ~/.virtualenv
+echo '# virtualenvwrapper setup' >> ~/.bashrc
+echo 'export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3' >> ~/.bashrc
+echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.bashrc
+echo 'export VIRTUALENVWRAPPER_VIRTUALENV=/home/your-username-here/.local/bin/virtualenv' >> ~/.bashrc
+echo 'source ~/.local/bin/virtualenvwrapper.sh' >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### 3.4)  Create a virtual envelope to install your tensorflow to, and start working on it.  While working on this virtualenvelopewrapper python packages you install will be installed to the /home/your-username-here/.virtualenvs dir.  This is helpful when it comes to managing dependencies.
+```
+mkvirtualenv dl4cv
+workon dl4cv
+```
 
 ## 4.)  Build Tensorflow from Sources
 
