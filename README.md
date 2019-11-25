@@ -10,7 +10,7 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 
 ```
 
-## 1.) Install Bazel v0.15.2
+## 1.) Install Bazel 0.15.2
 
 #### Bazel needs a C++ compiler and unzip / zip in order to work:
 ```
@@ -39,7 +39,7 @@ source ~/.bashrc
 bazel version
 ```
 
-## 2.) Install NCCL
+## 2.) Install NCCL 2.1.15
 
 #### 2.1)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
 
