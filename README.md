@@ -111,7 +111,8 @@ git checkout r1.12
 ```
 
 #### The configure screen will give you several options.  
-```
+Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus)
+
 Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
 
 Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: n
@@ -128,7 +129,7 @@ Please specify the CUDA SDK version you want to use. [Leave empty to default to 
 
 Please specify the location where CUDA 10.0 toolkit is installed. Refer to Home for more details. [Default is /usr/local/cuda]: /usr/local/cuda-9.0
 
-Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]: 7
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]: 7.3
 
 Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /usr/local/cuda-9.0/
 
@@ -136,9 +137,7 @@ Do you wish to build TensorFlow with TensorRT support? [y/N]: N
 
 Please specify the NCCL version you want to use. If NCCL 2.2 is not installed, then you can use version 1.3 that can be fetched automatically but it may have worse performance with multiple GPUs. [Default is 2.2]: 2.1
 
-Please specify the location where NCCL 2.3.5 is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /usr/local/cuda-9.0/targets/x86_64-linux/
-
-Now we need compute capability which we have noted at step 1 eg. 5.0
+Please specify the location where NCCL 2.3.5 is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /usr/local/nccl_2.1
 
 Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 5.0] 5.0
 
@@ -153,34 +152,10 @@ Please specify optimization flags to use during compilation when bazel option "-
 Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:N
 
 Configuration finished
-```
+
 
 #### The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
+bazel build --config=opt --config=cuda//tensorflow/tools/pip_package:build_pip_package --config=mkl --config=monolithic
 ```
 
-#### 
-```
-```
-
-#### 
-```
-```
-
-## 4.) 
-
-#### 
-```
-```
-
-## 5.) 
-
-#### 
-```
-```
-
-#### 
-```
-```
-
-#### 
