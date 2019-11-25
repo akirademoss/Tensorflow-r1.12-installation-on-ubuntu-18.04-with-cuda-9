@@ -7,13 +7,13 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 
 ```
 
-
 ## 1.) Install Bazel v0.15.2
 
 #### Bazel needs a C++ compiler and unzip / zip in order to work:
 ```
 sudo apt-get install g++ unzip zip
 ```
+
 #### If you want to build Java code using Bazel, install a JDK:
 ```
 # Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:
@@ -31,20 +31,37 @@ chmod +x bazel-0.15.2-installer-linux-x86_64.sh
 ```
 The ```--user``` flag installs Bazel to the ```$HOME/bin``` directory on your system and sets the ```.bazelrc``` path to ```$HOME/.bazelrc```. Use the --help command to see additional installation options.
 
-echo '' >> ~/.bashrc
-
-#### 
+#### If you ran the Bazel installer with the --user flag as above, the Bazel executable is installed in your $HOME/bin directory. It’s a good idea to add this directory to your default paths, as follows: note that you will need to swap 'your-username-here' with your username.  
+You need to run '''source ~/.bashrc''' anytime you use update the file for it to take effect in your terminal.  Verify the install by noting the output of bazel version
 ```
-```
-
-## 3.) 
-
-#### 
-```
+echo 'export PATH=/home/your-username-here/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+bazel version
 ```
 
-#### 
+## 2.) Install Python 3.6, pip3 and virtualenvs.
+
+#### Simply Run the commandlines and aquire these from the package manager
 ```
+sudo apt-get install python3.6-dev
+sudo apt install python3-pip
+sudo pip3 install virtualenv virtualenvwrapper
+```
+
+## 3.) Build Tensorflow from Sources
+
+#### Create a Software directory then change into this directory. 
+```
+mkdir ~/Software
+cd ~/Software
+```
+
+#### Clone the tensorflow repo, next change into tensorflow directory, then checkout r1.12, finally configure the tensorflow build
+```
+git clone https://github.com/tensorflow/tensorflow.git
+cd tensorflow
+git checkout r1.12
+./configure
 ```
 
 #### 
