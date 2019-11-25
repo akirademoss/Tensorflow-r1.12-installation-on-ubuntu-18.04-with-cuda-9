@@ -5,7 +5,8 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 ```
 1.) Install Bazel 0.15.2
 2.) Instal NCCL 2.1.15
-2.) Install Python 3.6
+3.) Install Python 3.6
+4.) Install Tensorflow r1.12
 
 ```
 
@@ -156,6 +157,6 @@ Configuration finished
 
 #### The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
-bazel build --config=opt --config=cuda//tensorflow/tools/pip_package:build_pip_package --config=mkl --config=monolithic
+bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=mkl --config=monolithic
 ```
 
