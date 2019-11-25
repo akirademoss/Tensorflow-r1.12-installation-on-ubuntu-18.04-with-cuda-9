@@ -18,9 +18,6 @@ sudo apt-get install g++ unzip zip
 
 #### 1.1)  If you want to build Java code using Bazel, install a JDK:
 ```
-# Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:
-sudo apt-get install openjdk-8-jdk
-
 # Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:
 sudo apt-get install openjdk-11-jdk
 ```
