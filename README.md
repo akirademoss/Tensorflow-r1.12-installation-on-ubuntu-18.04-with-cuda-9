@@ -6,7 +6,7 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 1.) Install Bazel 0.15.2
 2.) Instal NCCL 2.1.15
 3.) Install Python 3.6
-4.) Install Tensorflow r1.12
+4.) Build and install Tensorflow r1.12 from source
 
 ```
 
@@ -95,7 +95,7 @@ workon dl4cv
 ```
 
 
-## 4.)  Build Tensorflow from Sources
+## 4.)  Build and install Tensorflow r1.12 from source
 
 #### 4.1)  Create a Software directory then change into this directory. 
 ```
