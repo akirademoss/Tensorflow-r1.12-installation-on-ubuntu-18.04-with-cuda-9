@@ -1,5 +1,4 @@
 # Tensorflow-r1.12-installation-on-ubuntu-18.04-with-cuda-9
-# Cuda 9.0 installation on Ubuntu 18.04 LTS 
 This file contains step by step instructions to build Tensorflow r1.12 from sources with cuda v9.0 on Ubuntu 18.04.  A prerequisite is to have cuda v9.0 installed.  Instructions on doing this can be found [here](https://github.com/akirademoss/cuda-9.0-installation-on-ubuntu-18.04). 
 
 ## Summary of Steps 
