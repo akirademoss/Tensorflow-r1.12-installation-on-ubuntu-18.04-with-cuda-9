@@ -157,6 +157,6 @@ Configuration finished
 
 #### 4.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
-bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=mkl --config=monolithic
+bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=monolithic
 ```
 
