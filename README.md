@@ -47,9 +47,7 @@ bazel version
 
 Download the file ```NCCL 2.1.15 O/S agnostic and CUDA 9```
 
-#### 2.2)  If you do not already have an account with nvidia, you will need to [create an account here](https://developer.nvidia.com/nccl/nccl-download)
-
-#### 2.3) Go to downloads folder, extract, and copy contents to the specified directories
+#### 2.2) Go to downloads folder, extract, and copy contents to the specified directories
 ```
 cd ~/Downloads
 tar -xf nccl_2.1.15-1+cuda9.0_x86_64.txz 
