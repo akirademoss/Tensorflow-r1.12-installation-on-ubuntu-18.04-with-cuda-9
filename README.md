@@ -111,7 +111,7 @@ git checkout r1.12
 ./configure
 ```
 
-#### The configure screen will give you several options.  
+#### 4.3) The configure screen will give you several options.  
 Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus)
 
 Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
@@ -155,7 +155,7 @@ Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
 Configuration finished
 
 
-#### The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
+#### 4.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=mkl --config=monolithic
 ```
