@@ -99,6 +99,9 @@ mkvirtualenv dl4cv
 workon dl4cv
 ```
 
+#### 3.5) Verify that you are working on the dl4cv virtualenvwrapper
+For the remainder of the tutorial we will be working on the dl4cv virtualenvwrapper.  Make sure when you are installing your python dependencies your terminal looks like this ```(dl4cv) modeste@modeste-Latitude-5480:```.  This will verify that you are working on the virtualenvwrapper and installing all python dependencies to the hidden directory in your home directory ~/.virtualenvs/dl4cv.
+
 
 ## 4.)  Install Tensorflow dependencies
 
@@ -117,7 +120,7 @@ using the terminal
 ```
 cd ~/.virtualenvs/dl4cv/python3.6/lib/site-packages
 ```
-![Tensorflow Verify Dependencies](https://user-images.githubusercontent.com/8731829/69635078-35bc9680-1019-11ea-9007-add8d74041ee.png)
+![Sample-Tensorflow-Python-Dependencies-dl4cv](https://user-images.githubusercontent.com/8731829/69638501-6eac3980-1020-11ea-8a1c-1c8bbd78d7e1.png)
 
 
 ## 5.)  Build and install Tensorflow r1.12 from source
