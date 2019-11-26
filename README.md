@@ -217,3 +217,5 @@ hello = tf.constant('Hello, TensorFlow!')
 sess = tf.Session()
 print(sess.run(hello))
 ```
+
+![Tensorflow Test Output](https://user-images.githubusercontent.com/8731829/69656977-26e8da80-103f-11ea-9b82-9d69084b2bf9.png)
