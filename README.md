@@ -57,6 +57,9 @@ sudo mv ~/Downloads/nccl_2.1 /usr/local/
 sudo ldconfig
 ```
 
+#### 2.3) Verify that nccl_2.1 is now in your /usr/local directory
+![Sample-Tensorflow-Install-Verify-NCCL](https://user-images.githubusercontent.com/8731829/69636991-67cff780-101d-11ea-9041-da540617c677.png)
+
 ## 3.)  Install Python 3.6
 
 #### 3.1)  First check to see if python3.6 is already installed.  If it is, you can skip the next step.
