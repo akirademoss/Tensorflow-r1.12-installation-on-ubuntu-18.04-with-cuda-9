@@ -6,7 +6,8 @@ This file contains step by step instructions to build Tensorflow r1.12 from sour
 1.) Install Bazel 0.15.2
 2.) Instal NCCL 2.1.15
 3.) Install Python 3.6
-4.) Build and install Tensorflow r1.12 from source
+4.) Install Tensorflow dependencies
+5.) Build and install Tensorflow r1.12 from source
 
 ```
 
@@ -95,15 +96,22 @@ workon dl4cv
 ```
 
 
-## 4.)  Build and install Tensorflow r1.12 from source
+## 4.)  Install Tensorflow dependencies
+```
+pip3 install -U six numpy wheel mock
+pip3 install -U keras_applications==1.0.5 --no-deps
+pip3 install -U keras_preprocessing==1.0.3 --no-deps
+```
 
-#### 4.1)  Create a Software directory then change into this directory. 
+## 5.)  Build and install Tensorflow r1.12 from source
+
+#### 5.1)  Create a Software directory then change into this directory. 
 ```
 mkdir ~/Software
 cd ~/Software
 ```
 
-#### 4.2)  Clone the tensorflow repo, next change into tensorflow directory, then checkout r1.12, finally configure the tensorflow build
+#### 5.2)  Clone the tensorflow repo, next change into tensorflow directory, then checkout r1.12, finally configure the tensorflow build
 ```
 git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow
@@ -111,7 +119,7 @@ git checkout r1.12
 ./configure
 ```
 
-#### 4.3) The configure screen will give you several options.  
+#### 5.3) The configure screen will give you several options.  
 Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus)
 
 Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
@@ -155,7 +163,7 @@ Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
 Configuration finished
 
 
-#### 4.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
+#### 5.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=monolithic
 ```
