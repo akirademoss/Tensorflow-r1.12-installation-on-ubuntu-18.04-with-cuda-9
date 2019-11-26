@@ -32,7 +32,7 @@ chmod +x bazel-0.15.2-installer-linux-x86_64.sh
 ```
 The ```--user``` flag installs Bazel to the ```$HOME/bin``` directory on your system and sets the ```.bazelrc``` path to ```$HOME/.bazelrc```. Use the --help command to see additional installation options.
 
-#### 1.3)  If you ran the Bazel installer with the --user flag as above, the Bazel executable is installed in your $HOME/bin directory. It’s a good idea to add this directory to your default paths, as follows: note that you will need to swap 'your-username-here' with your username.  
+#### 1.3)  If you ran the Bazel installer with the --user flag as above, the Bazel executable is installed in your $HOME/bin directory. It’s a good idea to add this directory to your default paths, as follows: [IMPORTANT] you will need to swap 'your-username-here' with your actual username.  
 You need to run '''source ~/.bashrc''' anytime you use update the file for it to take effect in your terminal.  Verify the install by noting the output of bazel version
 ```
 echo 'export PATH=/home/your-username-here/bin:$PATH' >> ~/.bashrc
@@ -78,7 +78,7 @@ mkvirtualenv dl4cv
 ```
 
 #### 3.3)  Setup virtualenvwrapper. To read more about using virtualenvwrappers [check out this link](https://itnext.io/virtualenv-with-virtualenvwrapper-on-ubuntu-18-04-goran-aviani-d7b712d906d5)
-Also note that your-username-here must be replaced with your actual username.
+[IMPORTANT] your-username-here must be replaced with your actual username.
 ```
 mkdir ~/.virtualenv
 echo '# virtualenvwrapper setup' >> ~/.bashrc
@@ -89,7 +89,8 @@ echo 'source ~/.local/bin/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-#### 3.4)  Create a virtual envelope to install your tensorflow to, and start working on it.  While working on this virtualenvelopewrapper python packages you install will be installed to the /home/your-username-here/.virtualenvs dir.  This is helpful when it comes to managing dependencies.
+#### 3.4)  Create a virtual envelope to install your tensorflow to, and start working on it.  
+While working on this virtualenvelopewrapper python packages you install will be installed to the ~/.virtualenvs directory.  While working on your dl4cv virtualenvwrapper, everything installed using pip3 will be installed into your ~/.virtualenvs/dl4cv/* directories.  This is in contrast to it being installed system-wide in your /usr/* directories.  We do this to manage our projects dependencies.  For more information read the link from step 3.3.
 ```
 mkvirtualenv dl4cv
 workon dl4cv
@@ -97,11 +98,24 @@ workon dl4cv
 
 
 ## 4.)  Install Tensorflow dependencies
+
+#### 4.1)  Install the following
 ```
 pip3 install -U six numpy wheel mock
 pip3 install -U keras_applications==1.0.5 --no-deps
 pip3 install -U keras_preprocessing==1.0.3 --no-deps
 ```
+
+#### 4.2)  Verify that these have installed correctly to your ~/.virtualenvs directory. Feel free to use the terminal or gui to verify.
+Using the gui
+![Sample Tensorflow Dependencies](https://user-images.githubusercontent.com/8731829/69634598-3143ae00-1018-11ea-905c-51b508a8bbc9.png)
+
+using the terminal
+```
+cd ~/.virtualenvs/dl4cv/python3.6/lib/site-packages
+```
+![Tensorflow Verify Dependencies](https://user-images.githubusercontent.com/8731829/69635078-35bc9680-1019-11ea-9007-add8d74041ee.png)
+
 
 ## 5.)  Build and install Tensorflow r1.12 from source
 
@@ -120,7 +134,8 @@ git checkout r1.12
 ```
 
 #### 5.3) The configure screen will give you several options.  
-Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus)
+Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus).  Your should enter information in your configuration screen similar to this screenshot.  Be sure to actuallly check that all of your paths exist.  
+
 
 Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
 
