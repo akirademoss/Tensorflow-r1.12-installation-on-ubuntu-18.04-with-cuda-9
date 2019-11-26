@@ -78,7 +78,7 @@ mkvirtualenv dl4cv
 ```
 
 #### 3.3)  Setup virtualenvwrapper. To read more about using virtualenvwrappers [check out this link](https://itnext.io/virtualenv-with-virtualenvwrapper-on-ubuntu-18-04-goran-aviani-d7b712d906d5)
-[IMPORTANT] your-username-here must be replaced with your actual username.
+**[IMPORTANT]** your-username-here must be replaced with your actual username.
 ```
 mkdir ~/.virtualenv
 echo '# virtualenvwrapper setup' >> ~/.bashrc
