@@ -139,6 +139,8 @@ Note that the compute capability will depend on your hardware.  verify your gpu 
 ![Sample-Tensorflow-Build-Configuration1](https://user-images.githubusercontent.com/8731829/69633668-4b7c8c80-1016-11ea-90db-eeb5a7e118b6.png)
 ![Sample-Tensorflow-Build-Configuration2](https://user-images.githubusercontent.com/8731829/69633712-60f1b680-1016-11ea-83d5-3d6a07a7a824.png)
 
+below is a simplified example of the build configuration screen.
+```
 Please specify the location of python. [Default is /usr/modeste/.virtualenvs/dl4cv/bin/python]: /usr/modeste/.virtualenvs/dl4cv/bin/python
 
 Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: y
@@ -178,7 +180,7 @@ Please specify optimization flags to use during compilation when bazel option "-
 Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:N
 
 Configuration finished
-
+```
 
 #### 5.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
