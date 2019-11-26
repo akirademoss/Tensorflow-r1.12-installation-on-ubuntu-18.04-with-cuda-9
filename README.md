@@ -134,12 +134,14 @@ git checkout r1.12
 ```
 
 #### 5.3) The configure screen will give you several options.  
-Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus).  Your should enter information in your configuration screen similar to this screenshot.  Be sure to actuallly check that all of your paths exist.  
+Note that the compute capability will depend on your hardware.  verify your gpu and it's compute capability [using this link](https://developer.nvidia.com/cuda-gpus).  Your should enter information in your configuration screen similar to this screenshot.  Be sure to actuallly check that all of your paths exist.  Screenshots for my working build configuration are provided below.
 
+![Sample-Tensorflow-Build-Configuration1](https://user-images.githubusercontent.com/8731829/69633668-4b7c8c80-1016-11ea-90db-eeb5a7e118b6.png)
+![Sample-Tensorflow-Build-Configuration2](https://user-images.githubusercontent.com/8731829/69633712-60f1b680-1016-11ea-83d5-3d6a07a7a824.png)
 
-Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3.6
+Please specify the location of python. [Default is /usr/modeste/.virtualenvs/dl4cv/bin/python]: /usr/modeste/.virtualenvs/dl4cv/bin/python
 
-Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: n
+Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: y
 
 Do you wish to build TensorFlow with XLA JIT support? [Y/n]: n
 
@@ -147,7 +149,7 @@ Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n
 
 Do you wish to build TensorFlow with ROCm support? [y/N]: n
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
 
 Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 9.0
 
