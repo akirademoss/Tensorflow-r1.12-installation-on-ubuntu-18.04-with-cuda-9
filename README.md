@@ -144,7 +144,7 @@ Please note that each additional compute capability significantly increases your
 
 Do you want to use clang as CUDA compiler? [y/N]: N
 
-Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: /usr/bin/gcc
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc-6]: /usr/bin/gcc-6
 
 Do you wish to build TensorFlow with MPI support? [y/N]: N
 
