@@ -193,3 +193,26 @@ Configuration finished
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=monolithic
 ```
 
+After the build is completed your terminal should look similar to the one in the image below.
+![Tensorflow build completed](https://user-images.githubusercontent.com/8731829/69654580-a7f1a300-103a-11ea-91a3-9a87509e3bf7.png)
+
+
+#### 5.5)  Next we build the wheel which will allow us to install tensorflow via python's package manager.
+```
+bazel-bin/tensorflow/tools/pip_package/build_pip_package tensorflow_pkg
+```
+
+#### 5.6)  To install with pip we will run the following commands
+```
+cd tensorflow_pkg
+pip3 install tensorflow*.whl
+```
+Note : if you got error like unsupported platform then make sure you are running correct pip command associated with the python you used while configuring tensorflow build.
+
+#### 5.7)  verify the tensorflow installation
+```
+import tensorflow as tf
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+```
