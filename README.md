@@ -110,6 +110,7 @@ For the remainder of the tutorial we will be working on the dl4cv virtualenvwrap
 pip3 install -U six numpy wheel mock
 pip3 install -U keras_applications==1.0.5 --no-deps
 pip3 install -U keras_preprocessing==1.0.3 --no-deps
+pip3 install numpy==1.16.4
 ```
 
 #### 4.2)  Verify that these have installed correctly to your ~/.virtualenvs directory. Feel free to use the terminal or gui to verify.
