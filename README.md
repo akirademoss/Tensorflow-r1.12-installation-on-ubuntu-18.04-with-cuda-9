@@ -189,7 +189,12 @@ Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
 Configuration finished
 ```
 
-#### 5.4) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
+#### 5.4) Small bug fix relating to issue https://github.com/tensorflow/tensorflow/issues/19840, need to add following entry to tf_version_script.lds:
+```
+*stream_executor*;
+```
+
+#### 5.5) The next step in the process to install tensorflow GPU version will be to build tensorflow using bazel. This process takes a fairly long time.
 ```
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package --config=monolithic  --define=framework_shared_object=true
 ```
@@ -198,19 +203,19 @@ After the build is completed your terminal should look similar to the one in the
 ![Tensorflow build completed](https://user-images.githubusercontent.com/8731829/69654580-a7f1a300-103a-11ea-91a3-9a87509e3bf7.png)
 
 
-#### 5.5)  Next we build the wheel which will allow us to install tensorflow via python's package manager.
+#### 5.6)  Next we build the wheel which will allow us to install tensorflow via python's package manager.
 ```
 bazel-bin/tensorflow/tools/pip_package/build_pip_package tensorflow_pkg
 ```
 
-#### 5.6)  To install with pip we will run the following commands
+#### 5.7)  To install with pip we will run the following commands
 ```
 cd tensorflow_pkg
 pip3 install tensorflow*.whl
 ```
 Note : if you got error like unsupported platform then make sure you are running correct pip command associated with the python you used while configuring tensorflow build.
 
-#### 5.7)  verify the tensorflow installation
+#### 5.8)  verify the tensorflow installation
 ```
 import tensorflow as tf
 hello = tf.constant('Hello, TensorFlow!')
